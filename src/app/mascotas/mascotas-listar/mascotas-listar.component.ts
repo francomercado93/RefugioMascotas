@@ -20,7 +20,7 @@ export class MascotasListarComponent implements OnInit {
   ngOnInit() {
     this.mascotasService.getMascotas().subscribe((data) => {
       this.mascotas = data
-      this.mascotas.forEach((pet) => this.validateBtnState.set(pet.id, ClrLoadingState.DEFAULT))
+      this.mascotas.forEach((pet) => this.validateBtnState.set(pet._id, ClrLoadingState.DEFAULT))
       console.log(this.mascotas);
     })
   }
@@ -30,7 +30,7 @@ export class MascotasListarComponent implements OnInit {
   }
 
   async delete() {
-    let id = this.mascotaSeleccionada.id
+    let id = this.mascotaSeleccionada._id
     this.validateBtnState.set(id, ClrLoadingState.LOADING)
     // await delay(700);
     this.mascotasService.deleteMascota(id).subscribe((data) => {
@@ -42,7 +42,7 @@ export class MascotasListarComponent implements OnInit {
   }
 
   private deleteMascotaLocal(id: String): void {
-    this.mascotas.splice(this.mascotas.findIndex((pet) => pet.id == id), 1);
+    this.mascotas.splice(this.mascotas.findIndex((pet) => pet._id == id), 1);
   }
 
   public getValidateBtnState(mascotaId: String): ClrLoadingState {
