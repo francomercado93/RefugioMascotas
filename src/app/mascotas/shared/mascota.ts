@@ -1,6 +1,6 @@
 export interface Mascota {
 
-    _id: String
+    _qid: String
     nombre: string
     tipo: string
     edad: number

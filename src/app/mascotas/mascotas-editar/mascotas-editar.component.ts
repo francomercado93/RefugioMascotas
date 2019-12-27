@@ -59,6 +59,7 @@ export class MascotasEditarComponent implements OnInit {
   onSubmit() {
     if (!this.alta) {
       this.mascotasService.updateMascota(this.mascotaForm.value).subscribe(data => {
+        console.log(this.mascotaForm.value)
         this.navigateMascotasListar()
       })
     } else {

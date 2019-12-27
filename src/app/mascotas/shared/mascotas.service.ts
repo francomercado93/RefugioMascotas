@@ -29,6 +29,7 @@ export class MascotasService {
   }
 
   public updateMascota(mascota: Mascota) {
+    console.log(mascota)
     return this.httpClient.put<Mascota>(`${baseUrlHeroku}/mascotas`, mascota)
   }
 
